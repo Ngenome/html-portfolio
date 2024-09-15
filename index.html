@@ -3,229 +3,353 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digital Architects – Creative Developer</title>
+    <title>Brian Rotich - Web Developer & Designer</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
       body {
         font-family: "Poppins", sans-serif;
       }
+      .gradient-bg {
+        background: linear-gradient(90deg, #4f46e5, #06b6d4);
+      }
     </style>
   </head>
-  <body class="bg-gray-100">
-    <header class="bg-white shadow-md fixed w-full z-10">
+  <body class="bg-gray-100 text-gray-800">
+    <header
+      class="bg-white shadow-md fixed w-full z-50 transition-all duration-300"
+      id="navbar"
+    >
       <div
-        class="container mx-auto px-4 py-6 flex justify-between items-center"
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
       >
-        <h1 class="text-2xl font-bold">Digital Architects</h1>
-        <nav>
+        <h1
+          class="text-2xl font-bold text-transparent bg-clip-text gradient-bg"
+        >
+          Brian Rotich
+        </h1>
+        <nav class="hidden md:block">
           <ul class="flex space-x-6">
-            <li><a href="#home" class="hover:text-blue-600">Home</a></li>
-            <li><a href="#about" class="hover:text-blue-600">About</a></li>
             <li>
-              <a href="#portfolio" class="hover:text-blue-600">Portfolio</a>
+              <a href="#home" class="hover:text-indigo-600 transition">Home</a>
             </li>
-            <li><a href="#service" class="hover:text-blue-600">Service</a></li>
-            <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+            <li>
+              <a href="#about" class="hover:text-indigo-600 transition"
+                >About</a
+              >
+            </li>
+            <li>
+              <a href="#skills" class="hover:text-indigo-600 transition"
+                >Skills</a
+              >
+            </li>
+            <li>
+              <a href="#portfolio" class="hover:text-indigo-600 transition"
+                >Portfolio</a
+              >
+            </li>
+            <li>
+              <a href="#contact" class="hover:text-indigo-600 transition"
+                >Contact</a
+              >
+            </li>
           </ul>
         </nav>
+        <button class="md:hidden" id="menu-toggle">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
       </div>
+      <nav class="hidden px-4 py-2 bg-white md:hidden" id="mobile-menu">
+        <ul class="space-y-2">
+          <li>
+            <a href="#home" class="block hover:text-indigo-600 transition"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a href="#about" class="block hover:text-indigo-600 transition"
+              >About</a
+            >
+          </li>
+          <li>
+            <a href="#skills" class="block hover:text-indigo-600 transition"
+              >Skills</a
+            >
+          </li>
+          <li>
+            <a href="#portfolio" class="block hover:text-indigo-600 transition"
+              >Portfolio</a
+            >
+          </li>
+          <li>
+            <a href="#contact" class="block hover:text-indigo-600 transition"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <main>
-      <section id="home" class="pt-24 pb-12 bg-gray-900 text-white">
-        <div
-          class="container mx-auto px-4 flex flex-col md:flex-row items-center"
-        >
-          <div class="md:w-1/2 mb-8 md:mb-0">
-            <h2 class="text-4xl font-bold mb-4">Hello, I'm</h2>
-            <h1 class="text-5xl font-bold mb-4">Brian Rotich</h1>
-            <p class="text-xl mb-6">A Creative Designer From Nairobi</p>
-            <p class="mb-8">
-              I'm a website developer based in Kenya, and I'm very passionate
-              and dedicated to my work.
-            </p>
-            <a
-              href="#about"
-              class="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300"
-              >About Me</a
-            >
+      <section
+        id="home"
+        class="min-h-screen flex items-center justify-center gradient-bg text-white"
+      >
+        <div class="container mx-auto px-4 text-center">
+          <h1 class="text-4xl md:text-6xl font-bold mb-4" data-aos="fade-up">
+            Brian Rotich
+          </h1>
+          <div
+            class="text-xl md:text-3xl mb-8"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            I'm a <span id="typed-output"></span>
           </div>
-          <div class="md:w-1/2">
-            <img
-              src="https://webkraftst-cba350c8f9992dcd-endpoint.azureedge.net/wp-content/uploads/2024/09/profile-image-1-1.jpg"
-              alt="Brian Rotich"
-              class="rounded-full w-64 h-64 object-cover mx-auto"
-            />
-          </div>
+          <a
+            href="#about"
+            class="bg-white text-indigo-600 px-8 py-3 rounded-full font-semibold hover:bg-indigo-100 transition duration-300"
+            data-aos="fade-up"
+            data-aos-delay="400"
+            >Learn More</a
+          >
         </div>
       </section>
 
-      <section id="about" class="py-16">
+      <section id="about" class="py-20">
         <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold mb-8 text-center">About Me</h2>
-          <div class="flex flex-wrap -mx-4">
-            <div class="w-full md:w-1/3 px-4 mb-8">
-              <div class="bg-white rounded-lg shadow-md p-6 h-full">
-                <h3 class="text-xl font-semibold mb-4">Pixel Perfect</h3>
-                <p>
-                  I design websites with meticulous attention to detail,
-                  ensuring flawless alignment and a seamless, responsive
-                  experience across all devices.
-                </p>
-              </div>
-            </div>
-            <div class="w-full md:w-1/3 px-4 mb-8">
-              <div class="bg-white rounded-lg shadow-md p-6 h-full">
-                <h3 class="text-xl font-semibold mb-4">High Quality</h3>
-                <p>
-                  With a focus on precision, I ensure top-notch visuals,
-                  functionality, and a smooth user experience. Each project is
-                  crafted to meet modern standards, delivering a professional
-                  and polished result.
-                </p>
-              </div>
-            </div>
-            <div class="w-full md:w-1/3 px-4 mb-8">
-              <div class="bg-white rounded-lg shadow-md p-6 h-full">
-                <h3 class="text-xl font-semibold mb-4">Awesome Idea</h3>
-                <p>
-                  By combining creativity with functionality, I create unique,
-                  high-quality solutions tailored to your business needs,
-                  ensuring a seamless and memorable experience.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="portfolio" class="py-16 bg-gray-100">
-        <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold mb-8 text-center">My Amazing Works</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-              <img
-                src="https://webkraftst-cba350c8f9992dcd-endpoint.azureedge.net/wp-content/uploads/2024/09/icon-1728552_1280.jpg"
-                alt="E-commerce"
-                class="w-full h-48 object-cover"
-              />
-              <div class="p-6">
-                <h3 class="text-xl font-semibold mb-2">E-commerce</h3>
-                <p>Custom premade e-commerce website</p>
-              </div>
-            </div>
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-              <img
-                src="https://webkraftst-cba350c8f9992dcd-endpoint.azureedge.net/wp-content/uploads/2024/09/digital-8560051_1280.jpg"
-                alt="Portfolio"
-                class="w-full h-48 object-cover"
-              />
-              <div class="p-6">
-                <h3 class="text-xl font-semibold mb-2">Portfolio</h3>
-                <p>A visually appealing design that meets client goals.</p>
-              </div>
-            </div>
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-              <img
-                src="https://webkraftst-cba350c8f9992dcd-endpoint.azureedge.net/wp-content/uploads/2024/09/art-8509156_1280.jpg"
-                alt="Graphic Design"
-                class="w-full h-48 object-cover"
-              />
-              <div class="p-6">
-                <h3 class="text-xl font-semibold mb-2">Graphic Design</h3>
-                <p>
-                  I create visually appealing designs that satisfy your goal.
-                  Posters & Logos
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="service" class="py-16">
-        <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold mb-8 text-center">
-            What I Do for Clients
+          <h2 class="text-3xl font-bold mb-8 text-center" data-aos="fade-up">
+            About Me
           </h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="bg-white rounded-lg shadow-md p-6">
-              <h3 class="text-xl font-semibold mb-4">E-commerce</h3>
-              <p>
-                I create powerful, user-friendly sites tailored to your business
-                needs, ensuring your online success.
-              </p>
+          <div class="flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
+              <img
+                src="https://webkraftst-cba350c8f9992dcd-endpoint.azureedge.net/wp-content/uploads/2024/09/profile-image-1-1.jpg"
+                alt="Brian Rotich"
+                class="rounded-lg shadow-lg w-full max-w-md mx-auto"
+              />
             </div>
-            <div class="bg-white rounded-lg shadow-md p-6">
-              <h3 class="text-xl font-semibold mb-4">Graphic Design</h3>
-              <p>
-                I bring your brand to life with stunning, custom graphics that
-                capture attention and leave a lasting impression. From posters,
-                cards to logos.
+            <div class="md:w-1/2" data-aos="fade-left">
+              <p class="text-lg mb-4">
+                Hello! I'm Brian Rotich, a passionate web developer and designer
+                based in Nairobi, Kenya. With 2 years of experience in the
+                field, I specialize in creating beautiful, functional websites
+                that help businesses grow online.
               </p>
-            </div>
-            <div class="bg-white rounded-lg shadow-md p-6">
-              <h3 class="text-xl font-semibold mb-4">UI/UX Design</h3>
-              <p>
-                Experience seamless and intuitive UX/UI design that enhances
-                user engagement and drives results for your digital products.
+              <p class="text-lg mb-4">
+                My approach combines creativity with technical expertise,
+                ensuring that every project not only looks great but also
+                performs exceptionally. I'm dedicated to staying up-to-date with
+                the latest web technologies and design trends to deliver
+                cutting-edge solutions for my clients.
               </p>
-            </div>
-            <div class="bg-white rounded-lg shadow-md p-6">
-              <h3 class="text-xl font-semibold mb-4">Blogs</h3>
-              <p>
-                Enhance your brand voice with compelling, SEO-driven blog
-                content that engages your audience and boosts your online
-                presence.
-              </p>
+              <a
+                href="#contact"
+                class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-indigo-700 transition duration-300"
+                >Get in Touch</a
+              >
             </div>
           </div>
         </div>
       </section>
 
-      <section id="contact" class="py-16 bg-gray-900 text-white">
+      <section id="skills" class="py-20 bg-gray-100">
         <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold mb-8 text-center">Contact Me</h2>
-          <div class="flex flex-wrap -mx-4">
-            <div class="w-full md:w-1/2 px-4 mb-8">
-              <h3 class="text-xl font-semibold mb-4">Get in Touch</h3>
-              <p class="mb-4">
-                Please fill out the form on this section to contact with me. Or
-                call between 9:00 a.m. and 8:00 p.m. ET, Monday through Friday
-              </p>
+          <h2 class="text-3xl font-bold mb-8 text-center" data-aos="fade-up">
+            My Skills
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+              <h3 class="text-xl font-semibold mb-4">Web Development</h3>
               <ul class="space-y-2">
-                <li><strong>Address:</strong> 00100, Nairobi</li>
-                <li><strong>Phone:</strong> +254 720 732 588</li>
-                <li><strong>Email:</strong> ralphrotich@gmail.com</li>
+                <li>HTML5 & CSS3</li>
+                <li>JavaScript (ES6+)</li>
+                <li>React.js</li>
+                <li>Node.js</li>
+                <li>PHP</li>
               </ul>
             </div>
-            <div class="w-full md:w-1/2 px-4">
-              <form>
+            <div
+              class="bg-white rounded-lg shadow-md p-6"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <h3 class="text-xl font-semibold mb-4">Web Design</h3>
+              <ul class="space-y-2">
+                <li>UI/UX Design</li>
+                <li>Responsive Design</li>
+                <li>Adobe XD</li>
+                <li>Figma</li>
+                <li>Sketch</li>
+              </ul>
+            </div>
+            <div
+              class="bg-white rounded-lg shadow-md p-6"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <h3 class="text-xl font-semibold mb-4">Other Skills</h3>
+              <ul class="space-y-2">
+                <li>Version Control (Git)</li>
+                <li>RESTful API Development</li>
+                <li>Database Design (MySQL, MongoDB)</li>
+                <li>WordPress Development</li>
+                <li>Search Engine Optimization (SEO)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio" class="py-20">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl font-bold mb-8 text-center" data-aos="fade-up">
+            My Portfolio
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="bg-white rounded-lg shadow-md overflow-hidden"
+              data-aos="fade-up"
+            >
+              <img
+                src="https://webkraftst-cba350c8f9992dcd-endpoint.azureedge.net/wp-content/uploads/2024/09/icon-1728552_1280.jpg"
+                alt="E-commerce Project"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-2">E-commerce Website</h3>
+                <p class="mb-4">
+                  A fully responsive e-commerce platform built with React and
+                  Node.js.
+                </p>
+                <a
+                  href="#"
+                  class="text-indigo-600 hover:text-indigo-800 transition"
+                  >View Project</a
+                >
+              </div>
+            </div>
+            <div
+              class="bg-white rounded-lg shadow-md overflow-hidden"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <img
+                src="https://webkraftst-cba350c8f9992dcd-endpoint.azureedge.net/wp-content/uploads/2024/09/digital-8560051_1280.jpg"
+                alt="Portfolio Project"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-2">Personal Portfolio</h3>
+                <p class="mb-4">
+                  A sleek and modern portfolio website showcasing my best work.
+                </p>
+                <a
+                  href="#"
+                  class="text-indigo-600 hover:text-indigo-800 transition"
+                  >View Project</a
+                >
+              </div>
+            </div>
+            <div
+              class="bg-white rounded-lg shadow-md overflow-hidden"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <img
+                src="https://webkraftst-cba350c8f9992dcd-endpoint.azureedge.net/wp-content/uploads/2024/09/art-8509156_1280.jpg"
+                alt="Graphic Design Project"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-2">
+                  Brand Identity Design
+                </h3>
+                <p class="mb-4">
+                  A comprehensive brand identity project including logo and
+                  marketing materials.
+                </p>
+                <a
+                  href="#"
+                  class="text-indigo-600 hover:text-indigo-800 transition"
+                  >View Project</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="py-20 gradient-bg text-white">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl font-bold mb-8 text-center" data-aos="fade-up">
+            Get in Touch
+          </h2>
+          <div class="flex flex-wrap -mx-4">
+            <div class="w-full md:w-1/2 px-4 mb-8" data-aos="fade-right">
+              <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
+              <p class="mb-4">
+                Feel free to reach out to me for any inquiries or collaboration
+                opportunities. I'm always excited to work on new and challenging
+                projects!
+              </p>
+              <ul class="space-y-2">
+                <li>📍 Nairobi, Kenya</li>
+                <li>📱 +254 720 732 588</li>
+                <li>✉️ ralphrotich@gmail.com</li>
+              </ul>
+            </div>
+            <div class="w-full md:w-1/2 px-4" data-aos="fade-left">
+              <form id="contact-form">
                 <div class="mb-4">
                   <input
                     type="text"
+                    id="name"
+                    name="name"
                     placeholder="Your Name"
-                    class="w-full px-4 py-2 rounded-md text-gray-900"
+                    required
+                    class="w-full px-4 py-2 rounded-md text-gray-800"
                   />
                 </div>
                 <div class="mb-4">
                   <input
                     type="email"
+                    id="email"
+                    name="email"
                     placeholder="Your Email"
-                    class="w-full px-4 py-2 rounded-md text-gray-900"
+                    required
+                    class="w-full px-4 py-2 rounded-md text-gray-800"
                   />
                 </div>
                 <div class="mb-4">
                   <textarea
+                    id="message"
+                    name="message"
                     placeholder="Your Message"
                     rows="5"
-                    class="w-full px-4 py-2 rounded-md text-gray-900"
+                    required
+                    class="w-full px-4 py-2 rounded-md text-gray-800"
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  class="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300"
+                  class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-indigo-100 transition duration-300"
                 >
                   Send Message
                 </button>
@@ -238,8 +362,111 @@
 
     <footer class="bg-gray-800 text-white py-8">
       <div class="container mx-auto px-4 text-center">
-        <p>&copy; 2023. Developed by Digital Architects.</p>
+        <p>&copy; 2023 Brian Rotich. All rights reserved.</p>
       </div>
     </footer>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+
+      // Typed.js
+      var typed = new Typed("#typed-output", {
+        strings: ["Web Developer", "UI/UX Designer", "Freelancer"],
+        typeSpeed: 50,
+        backSpeed: 50,
+        backDelay: 2000,
+        loop: true,
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Mobile menu toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Navbar scroll effect
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add("py-2", "bg-white/90", "backdrop-blur-sm");
+          navbar.classList.remove("py-4", "bg-white");
+        } else {
+          navbar.classList.add("py-4", "bg-white");
+          navbar.classList.remove("py-2", "bg-white/90", "backdrop-blur-sm");
+        }
+      });
+
+      // Form submission
+      const contactForm = document.getElementById("contact-form");
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        const name = formData.get("name");
+        const email = formData.get("email");
+        const message = formData.get("message");
+
+        // Here you would typically send this data to a server
+        // For now, we'll just log it and show an alert
+        console.log("Form submitted:", { name, email, message });
+        alert("Thanks for your message! I&apos;ll get back to you soon.");
+        this.reset();
+      });
+
+      // Skill progress animation
+      const skillBars = document.querySelectorAll(".skill-progress");
+      const animateSkills = () => {
+        skillBars.forEach((bar) => {
+          const target = bar.getAttribute("data-target");
+          let width = 0;
+          const interval = setInterval(() => {
+            if (width >= target) {
+              clearInterval(interval);
+            } else {
+              width++;
+              bar.style.width = width + "%";
+              bar.textContent = width + "%";
+            }
+          }, 10);
+        });
+      };
+
+      // Trigger skill animation when the skills section is in view
+      const skillsSection = document.getElementById("skills");
+      const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          animateSkills();
+          observer.unobserve(skillsSection);
+        }
+      });
+      observer.observe(skillsSection);
+
+      // Portfolio item hover effect
+      const portfolioItems = document.querySelectorAll("#portfolio .bg-white");
+      portfolioItems.forEach((item) => {
+        item.addEventListener("mouseenter", () => {
+          item.classList.add("shadow-lg", "scale-105");
+          item.classList.remove("shadow-md");
+        });
+        item.addEventListener("mouseleave", () => {
+          item.classList.remove("shadow-lg", "scale-105");
+          item.classList.add("shadow-md");
+        });
+      });
+    </script>
   </body>
 </html>
